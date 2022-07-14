@@ -38,14 +38,21 @@ ctx.fillRect(0, 0, canvas.width, canvas.height)
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
 const playerImage = new Image();
 playerImage.src= './img/playerDown.png'
-
+const x = canvas.width / 2 - (playerImage.width / 4) / 2;
+const y = canvas.height / 2 - playerImage.height / 2;
 const image = new Image();
 image.src = './img/ninjaMap.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
 image.onload = () => {
-  ctx.drawImage(image, -1285, -525)
+  ctx.drawImage(image, -1268, -525)
   ctx.drawImage(playerImage,
-    canvas.width / 2 - playerImage.width / 2,
-    canvas.height / 2 - playerImage.height / 2,
+    0, // x coordinate
+    0, // y coordinate
+    playerImage.width / 4, // crop width
+    playerImage.height, //
+    x ,
+    y,
+    playerImage.width / 4,
+    playerImage.height,
   )
 }
