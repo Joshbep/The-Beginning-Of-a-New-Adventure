@@ -26,3 +26,10 @@
 //player to map boundary collisions
 //foreground objects
 //player movement animation
+const canvas = document.querySelector('canvas')
+const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
+canvas.width = 1024
+canvas.height = 576
+ctx.fillstyle = 'white';
+  // left and top cut, width of cut, height of cut
+ctx.fillRect(0, 0, canvas.width, canvas.height)
