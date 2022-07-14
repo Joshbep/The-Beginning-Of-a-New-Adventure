@@ -91,10 +91,10 @@ const animate = () => {
     playerImage.width / 4,
     playerImage.height,
   )
-  if (keys.w.pressed) {
-    background.position.y = background.position.y + 3
-    console.log(background.position.y)
-  }
+  if (keys.w.pressed) background.position.y += 3
+  else if (keys.a.pressed) background.position.x += 3
+  else if (keys.s.pressed) background.position.y -= 3
+  else if (keys.d.pressed) background.position.x -= 3
 }
 animate()
 //https://www.w3schools.com/js/js_window.asp
