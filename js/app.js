@@ -19,7 +19,7 @@
 // export layers for project import
 
 //player and map development with coding
-//project setup
+//project setup -- done
 //import and render my map
 //player creation
 //move player through map on key down
@@ -33,3 +33,13 @@ canvas.height = 576
 ctx.fillstyle = 'white';
   // left and top cut, width of cut, height of cut
 ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+// this is how you draw something onto the screen
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
+const image = new Image();
+image.src = './img/ninjaMap.png';
+// draw image method requires 3 arguments which will be image first, second will be x position, third is y position
+
+image.onload = () => {
+  ctx.drawImage(image, 0, 0)  
+}
