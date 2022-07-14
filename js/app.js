@@ -39,7 +39,6 @@ ctx.fillRect(0, 0, canvas.width, canvas.height)
 const image = new Image();
 image.src = './img/ninjaMap.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
-
 image.onload = () => {
-  ctx.drawImage(image, 0, 0)  
+  ctx.drawImage(image, -1300, -420)  
 }
