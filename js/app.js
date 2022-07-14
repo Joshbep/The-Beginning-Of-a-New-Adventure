@@ -20,7 +20,7 @@
 
 //player and map development with coding
 //project setup -- done
-//import and render my map
+//import and render my map -- done
 //player creation
 //move player through map on key down
 //player to map boundary collisions
@@ -36,9 +36,16 @@ ctx.fillRect(0, 0, canvas.width, canvas.height)
 
 // this is how you draw something onto the screen
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
+const playerImage = new Image();
+playerImage.src= './img/playerDown.png'
+
 const image = new Image();
 image.src = './img/ninjaMap.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
 image.onload = () => {
-  ctx.drawImage(image, -1300, -420)  
+  ctx.drawImage(image, -1285, -525)
+  ctx.drawImage(playerImage,
+    canvas.width / 2 - playerImage.width / 2,
+    canvas.height / 2 - playerImage.height / 2,
+  )
 }

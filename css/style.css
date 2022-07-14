@@ -1,3 +1,11 @@
 body {
   background-color: black;
 }
+.game-container {
+  width: 1024px;
+  height: 576px;
+  position: relative;
+  margin: 0 auto;
+  outline: 1px solid white;
+  transform: scale(1) translateY(10%);
+}
