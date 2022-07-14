@@ -9,9 +9,20 @@
 
 //inital steps
 //find assets
-// download map assets
-// import into file
-//layer downloaded tiles
-//place trees and enviorment
-//landscaping details
-//collisions and map boundaries
+// download map assets -- done
+// import into file -- done
+//layer downloaded tiles -- done
+//place trees and enviorment -- done
+//landscaping details -- done
+//collisions and map boundaries -- done
+//foreground layer -- done
+// export layers for project import
+
+//player and map development with coding
+//project setup
+//import and render my map
+//player creation
+//move player through map on key down
+//player to map boundary collisions
+//foreground objects
+//player movement animation
