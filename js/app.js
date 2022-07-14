@@ -63,6 +63,20 @@ const background = new Sprite({
   },
   image: image
 })
+const keys = {
+  w: {
+    pressed: false
+  },
+  a: {
+    pressed: false
+  },
+  s: {
+    pressed: false
+  },
+  d: {
+    pressed: false
+  }
+}
 
 const animate = () => {
   window.requestAnimationFrame(animate)
@@ -77,6 +91,7 @@ const animate = () => {
     playerImage.width / 4,
     playerImage.height,
   )
+  // if ()
 }
 animate()
 //https://www.w3schools.com/js/js_window.asp
@@ -85,19 +100,40 @@ window.addEventListener('keydown', (e) => {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
   switch (e.key) {
     case 'w':
-      console.log('pressed w key')
+      keys.w.pressed = true
       break
 
     case 'a':
-        console.log('pressed a key')
+        keys.a.pressed = true
         break
 
     case 's':
-          console.log('pressed s key')
+          keys.s.pressed = true
           break
 
     case 'd':
-      console.log('pressed d key')
+      keys.d.pressed = true
+      break
+  }
+})
+
+window.addEventListener('keyup', (e) => {
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+  switch (e.key) {
+    case 'w':
+      keys.w.pressed = false
+      break
+
+    case 'a':
+        keys.a.pressed = false
+        break
+
+    case 's':
+          keys.s.pressed = false
+          break
+
+    case 'd':
+      keys.d.pressed = false
       break
   }
 })
