@@ -21,7 +21,7 @@
 //player and map development with coding
 //project setup -- done
 //import and render my map -- done
-//player creation
+//player creation -- done
 //move player through map on key down
 //player to map boundary collisions
 //foreground objects
@@ -56,3 +56,14 @@ image.onload = () => {
     playerImage.height,
   )
 }
+
+//https://www.w3schools.com/js/js_window.asp
+//only works if we are running code directly to our browser from my understanding
+window.addEventListener('keydown', (e) => {
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+  switch (e.key) {
+    case 'w';
+      console.log('pressed w key')
+      break
+  }
+})
