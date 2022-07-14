@@ -52,7 +52,7 @@ class Sprite {
     this.image = image
   }
   draw() {
-    ctx.drawImage(this.image, -1268, -525)
+    ctx.drawImage(this.image, this.position.x, this.position.y)
   }
 }
 
@@ -91,7 +91,10 @@ const animate = () => {
     playerImage.width / 4,
     playerImage.height,
   )
-  // if ()
+  if (keys.w.pressed) {
+    background.position.y = background.position.y + 3
+    console.log(background.position.y)
+  }
 }
 animate()
 //https://www.w3schools.com/js/js_window.asp
