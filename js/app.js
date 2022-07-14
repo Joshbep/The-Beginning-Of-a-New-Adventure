@@ -44,7 +44,29 @@ const image = new Image();
 image.src = './img/ninjaMap.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
 image.onload = () => {
-  ctx.drawImage(image, -1268, -525)
+
+}
+class Sprite {
+  constructor ({ position, velocity, image }) {
+    this.position = position
+    this.image = image
+  }
+  draw() {
+    ctx.drawImage(this.image, -1268, -525)
+  }
+}
+
+const background = new Sprite({
+  position: {
+    x: -1268,
+    y: -525
+  },
+  image: image
+})
+
+const animate = () => {
+  window.requestAnimationFrame(animate)
+  background.draw()
   ctx.drawImage(playerImage,
     0, // x coordinate
     0, // y coordinate
@@ -56,14 +78,26 @@ image.onload = () => {
     playerImage.height,
   )
 }
-
+animate()
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 window.addEventListener('keydown', (e) => {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
   switch (e.key) {
-    case 'w';
+    case 'w':
       console.log('pressed w key')
+      break
+
+    case 'a':
+        console.log('pressed a key')
+        break
+
+    case 's':
+          console.log('pressed s key')
+          break
+
+    case 'd':
+      console.log('pressed d key')
       break
   }
 })
