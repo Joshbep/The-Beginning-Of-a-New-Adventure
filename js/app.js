@@ -26,6 +26,7 @@
 //player to map boundary collisions
 //foreground objects
 //player movement animation
+console.log(collisions)
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
 canvas.width = 1024
