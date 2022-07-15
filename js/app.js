@@ -26,14 +26,41 @@
 //player to map boundary collisions
 //foreground objects
 //player movement animation
-console.log(collisions)
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
 canvas.width = 1024
 canvas.height = 576
-ctx.fillstyle = 'white';
-  // left and top cut, width of cut, height of cut
-ctx.fillRect(0, 0, canvas.width, canvas.height)
+// map is 50 tiles wide
+const collisionsMap = []
+for (let i = 0; i < collisions.length; i += 50) {
+  collisionsMap.push(collisions.slice(i, 50 + i))
+}
+
+class Boundary {
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
+  static width = 80;
+  static height = 80;
+  constructor ({position}) {
+    this.position = position
+    this.width = 80
+    this.height = 80
+  }
+  draw() {
+    c.fillStyle = 'red'
+    c.fillRect(this.position.x, this.position.y, this.width, this.height)
+  }
+}
+const boundaries = []
+
+collisionsMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 3060)
+    boundaries.push(new Boundary({position: {
+      x: j * Boundary.width,
+      y: i * Boundary.height
+    }}))
+  })
+})
 
 // this is how you draw something onto the screen
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
