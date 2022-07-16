@@ -152,6 +152,7 @@ const animate = () => {
       moveable.position.y += 3
     })
   } else if (keys.a.pressed && lastKey === 'a') {
+    player.moving = true
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
@@ -174,6 +175,7 @@ const animate = () => {
     })
   }
   else if (keys.s.pressed && lastKey === 's') {
+    player.moving = true
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
@@ -196,6 +198,7 @@ const animate = () => {
     })
   }
   else if (keys.d.pressed && lastKey === 'd') {
+    player.moving = true
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
