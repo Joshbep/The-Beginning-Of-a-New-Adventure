@@ -7,7 +7,7 @@
 // element inherits properties from its parent interface
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 //https://www.freecodecamp.org/news/the-beginners-guide-to-the-greensock-animation-platform-7dc9fd9eb826/#:~:text=Introduction,create%20robust%20timeline%20based%20animations.
-
+//https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame
 
 //inital steps
 //find assets
@@ -168,7 +168,7 @@ const battle = {
 }
 
 const animate = () => {
-  window.requestAnimationFrame(animate)
+  const animationId = window.requestAnimationFrame(animate)
   background.draw()
   grass.draw()
   boundaries.forEach(boundary => {
@@ -212,6 +212,7 @@ const animate = () => {
           //activate a new animation loop
 
           //deactivate current animation loop
+          window.cancelAnimationFrame(animationId)
           }
         })
         break
