@@ -5,6 +5,7 @@
 // https://itch.io/game-assets/tag-top-down is where I am finding assets
 // element is the most general base class from which all element objects in a document inherit
 // element inherits properties from its parent interface
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 
 
 //inital steps
@@ -127,7 +128,9 @@ const animate = () => {
   player.draw()
   foreground.draw()
   let moving = true
+  player.moving = false
   if (keys.w.pressed && lastKey === 'w') {
+    player.moving = true
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
