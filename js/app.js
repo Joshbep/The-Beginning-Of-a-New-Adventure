@@ -6,6 +6,7 @@
 // element is the most general base class from which all element objects in a document inherit
 // element inherits properties from its parent interface
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+//https://www.freecodecamp.org/news/the-beginners-guide-to-the-greensock-animation-platform-7dc9fd9eb826/#:~:text=Introduction,create%20robust%20timeline%20based%20animations.
 
 
 //inital steps
@@ -29,6 +30,7 @@
 //player movement animation -- done
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
+
 canvas.width = 1024
 canvas.height = 576
 // map is 50 tiles wide
@@ -69,7 +71,6 @@ battleZonesMap.forEach((row, i) => {
     }}))
   })
 })
-console.log(battleZones)
 // this is how you draw something onto the screen
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
 const playerDownImage = new Image();
@@ -198,6 +199,21 @@ const animate = () => {
       ) {
         console.log('activate battle')
         battle.initiated = true
+        gsap.to('.battleChange', {
+          opacity: 1,
+          repeat: 2,
+          yoyo: true,
+          duration: 0.4,
+          onComplete() {
+            gsap.to('.battleChange', {
+              opacity: 1,
+              duration: 0.4
+            })
+          //activate a new animation loop
+
+          //deactivate current animation loop
+          }
+        })
         break
       }
     }
