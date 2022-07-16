@@ -179,7 +179,8 @@ const animate = () => {
   player.draw()
   foreground.draw()
 
-
+  let moving = true
+  player.moving = false
   if (battle.initiated) return
   //activate a battle here
   if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
@@ -201,8 +202,7 @@ const animate = () => {
       }
     }
   }
-  let moving = true
-  player.moving = false
+
   if (keys.w.pressed && lastKey === 'w') {
     player.moving = true
     player.image = player.sprites.up
