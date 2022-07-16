@@ -36,20 +36,7 @@ for (let i = 0; i < collisions.length; i += 50) {
   collisionsMap.push(collisions.slice(i, 50 + i))
 }
 
-class Boundary {
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
-  static width = 80;
-  static height = 80;
-  constructor ({position}) {
-    this.position = position
-    this.width = 80
-    this.height = 80
-  }
-  draw() {
-    ctx.fillStyle = 'rgba(255, 0, 0, 0)'
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
-  }
-}
+
 const offset = {
   x: -1268,
   y:-525
@@ -74,34 +61,11 @@ const x = canvas.width / 2 - (playerImage.width / 4) / 2;
 const y = canvas.height / 2 - playerImage.height / 2;
 const image = new Image();
 image.src = './img/ninjaMap.png';
+const foregroundImage = new Image();
+foregroundImage.src = './img/foregroundObjects.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
-image.onload = () => {
 
-}
-class Sprite {
-  constructor ({ position, velocity, image, frames = {max: 1 } }) {
-    this.position = position
-    this.image = image
-    this.frames = frames
 
-    this.image.onload = () => {
-      this.width = this.image.width / this.frames.max
-      this.height = this.image.height
-    }
-  }
-  draw() {
-    ctx.drawImage(this.image,
-      0, // x coordinate
-      0, // y coordinate
-      this.image.width / this.frames.max, // crop width
-      this.image.height, //
-      this.position.x,
-      this.position.y,
-      this.image.width / this.frames.max,
-      this.image.height
-    )
-  }
-}
 
 const player = new Sprite ({
   position: {
@@ -121,6 +85,15 @@ const background = new Sprite({
   },
   image: image
 })
+
+const foreground = new Sprite({
+  position: {
+    x: offset.x,
+    y: offset.y
+  },
+  image: foregroundImage
+})
+
 const keys = {
   w: {
     pressed: false
@@ -136,7 +109,7 @@ const keys = {
   }
 }
 
-const moveables = [background, ...boundaries]
+const moveables = [background, ...boundaries, foreground]
 const rectangularCollision = ({rectangle1, rectangle2}) => {
   return (
     rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
@@ -152,6 +125,7 @@ const animate = () => {
   boundary.draw()
   })
   player.draw()
+  foreground.draw()
   let moving = true
   if (keys.w.pressed && lastKey === 'w') {
     for (let i = 0; i < boundaries.length; i++) {
