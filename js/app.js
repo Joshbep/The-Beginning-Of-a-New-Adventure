@@ -162,6 +162,10 @@ const rectangularCollision = ({rectangle1, rectangle2}) => {
     rectangle1.position.y + rectangle1.height >= rectangle2.position.y
   )
 }
+const battle = {
+  initiated: false
+}
+
 const animate = () => {
   window.requestAnimationFrame(animate)
   background.draw()
@@ -174,6 +178,10 @@ const animate = () => {
   })
   player.draw()
   foreground.draw()
+
+
+  if (battle.initiated) return
+  //activate a battle here
   if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
     for (let i = 0; i < battleZones.length; i++) {
       const battleZone = battleZones[i]
@@ -187,7 +195,8 @@ const animate = () => {
         overlappingArea > (player.width * player.height) / 2
         && Math.random() < 0.01
       ) {
-        console.log('collision')
+        console.log('activate battle')
+        battle.initiated = true
         break
       }
     }
