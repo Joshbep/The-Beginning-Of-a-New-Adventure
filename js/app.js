@@ -8,6 +8,8 @@
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 //https://www.freecodecamp.org/news/the-beginners-guide-to-the-greensock-animation-platform-7dc9fd9eb826/#:~:text=Introduction,create%20robust%20timeline%20based%20animations.
 //https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame
+// https://greensock.com/docs/v3/GSAP/Tween/repeat()
+
 
 //inital steps
 //find assets
