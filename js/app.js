@@ -56,10 +56,20 @@ collisionsMap.forEach((row, i) => {
 
 // this is how you draw something onto the screen
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
-const playerImage = new Image();
-playerImage.src= './img/playerDown.png'
-const x = canvas.width / 2 - (playerImage.width / 4) / 2;
-const y = canvas.height / 2 - playerImage.height / 2;
+const playerDownImage = new Image();
+playerDownImage.src= './img/playerDown.png'
+
+const playerUpImage = new Image();
+playerUpImage.src= './img/playerUp.png'
+
+const playerLeftImage = new Image();
+playerLeftImage.src= './img/playerLeft.png'
+
+const playerRightImage = new Image();
+playerRightImage.src= './img/playerRight.png'
+
+const x = canvas.width / 2 - (playerDownImage.width / 4) / 2;
+const y = canvas.height / 2 - playerDownImage.height / 2;
 const image = new Image();
 image.src = './img/ninjaMap.png';
 const foregroundImage = new Image();
@@ -73,9 +83,15 @@ const player = new Sprite ({
     x: x,
     y: y,
   },
-  image: playerImage,
+  image: playerDownImage,
   frames: {
     max: 4
+  },
+  sprites: {
+    up: playerUpImage,
+    left: playerLeftImage,
+    down: playerDownImage,
+    right: playerRightImage
   }
 })
 
@@ -131,6 +147,7 @@ const animate = () => {
   player.moving = false
   if (keys.w.pressed && lastKey === 'w') {
     player.moving = true
+    player.image = player.sprites.up
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
@@ -153,6 +170,7 @@ const animate = () => {
     })
   } else if (keys.a.pressed && lastKey === 'a') {
     player.moving = true
+    player.image = player.sprites.left
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
@@ -176,6 +194,7 @@ const animate = () => {
   }
   else if (keys.s.pressed && lastKey === 's') {
     player.moving = true
+    player.image = player.sprites.down
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
@@ -199,6 +218,7 @@ const animate = () => {
   }
   else if (keys.d.pressed && lastKey === 'd') {
     player.moving = true
+    player.image = player.sprites.right
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i]
       if (
