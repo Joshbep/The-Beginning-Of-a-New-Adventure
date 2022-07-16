@@ -29,6 +29,7 @@
 //player movement animation
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
+console.log(battleZones)
 canvas.width = 1024
 canvas.height = 576
 // map is 50 tiles wide
@@ -74,6 +75,8 @@ const image = new Image();
 image.src = './img/ninjaMap.png';
 const foregroundImage = new Image();
 foregroundImage.src = './img/foregroundObjects.png';
+const battleGrass = new Image();
+battleGrass.src = './img/battlePatch.png';
 // draw image method requires 3 arguments which will be image first, second will be x position, third is y position
 
 
@@ -111,6 +114,15 @@ const foreground = new Sprite({
   image: foregroundImage
 })
 
+const grass = new Sprite({
+  position: {
+    x: offset.x,
+    y: offset.y
+  },
+  image: battleGrass
+})
+
+
 const keys = {
   w: {
     pressed: false
@@ -126,7 +138,7 @@ const keys = {
   }
 }
 
-const moveables = [background, ...boundaries, foreground]
+const moveables = [background, ...boundaries, foreground, grass]
 const rectangularCollision = ({rectangle1, rectangle2}) => {
   return (
     rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
@@ -138,6 +150,7 @@ const rectangularCollision = ({rectangle1, rectangle2}) => {
 const animate = () => {
   window.requestAnimationFrame(animate)
   background.draw()
+  grass.draw()
   boundaries.forEach(boundary => {
   boundary.draw()
   })
