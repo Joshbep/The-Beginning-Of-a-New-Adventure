@@ -43,7 +43,7 @@ class Boundary {
     this.height = 80
   }
   draw() {
-    ctx.fillStyle = 'rgba(255, 0, 0, 0)'
+    ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 }
