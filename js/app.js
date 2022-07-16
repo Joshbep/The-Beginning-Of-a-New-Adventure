@@ -23,8 +23,8 @@
 //import and render my map -- done
 //player creation -- done
 //move player through map on key down -- done
-//player to map boundary collisions
-//foreground objects
+//player to map boundary collisions - done
+//foreground objects - done
 //player movement animation
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
