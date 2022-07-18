@@ -211,10 +211,13 @@ const animate = () => {
           onComplete() {
             gsap.to('.battleChange', {
               opacity: 1,
-              duration: 0.4
+              duration: 0.4,
+              onComplete () {
+                //activate a new animation loop
+                animateBattle();
+                gsap.to('.battleChange', {opacity: 0, duration: 0.4})
+              }
             })
-          //activate a new animation loop
-          animateBattle();
 
           }
         })
@@ -315,9 +318,18 @@ const animate = () => {
     })  }
 }
 animate()
+const battleBackgroundImg = new Image()
+battleBackgroundImg.src = './img/battleBackground.png';
+const battleBackground = new Sprite({
+  position: {
+    x: 0,
+    y:0
+  },
+  image: battleBackgroundImg
+})
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
-  console.log('animating battle')
+  battleBackground.draw()
 }
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
