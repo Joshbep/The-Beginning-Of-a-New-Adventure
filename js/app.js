@@ -11,7 +11,7 @@
 // https://greensock.com/docs/v3/GSAP/Tween/repeat()
 
 
-//inital steps
+//inital steps:
 //find assets
 // download map assets -- done
 // import into file -- done
@@ -22,7 +22,7 @@
 //foreground layer -- done
 // export layers for project import
 
-//player and map development with coding
+//player and map development with coding:
 //project setup -- done
 //import and render my map -- done
 //player creation -- done
@@ -32,9 +32,9 @@
 //player movement animation -- done
 
 // battle sequences:
-// battle activation
-// transition map to battle sequence
-//draw the background for the battle
+// battle activation - done
+// transition map to battle sequence - done
+//draw the background for the battle- done
 // add battle sprites
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
@@ -323,7 +323,7 @@ const animate = () => {
       moveable.position.x -= 3
     })  }
 }
-animate()
+// animate()
 const battleBackgroundImg = new Image()
 battleBackgroundImg.src = './img/battleBackground.png';
 const battleBackground = new Sprite({
@@ -337,6 +337,7 @@ const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
 }
+animateBattle();
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
