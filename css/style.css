@@ -1,6 +1,10 @@
 body {
   background-color: black;
 }
+
+h1 {
+  margin: 0;
+}
 .game-container {
   width: 1024px;
   height: 576px;
@@ -26,6 +30,7 @@ body {
 }
 
 .battle {
+  display: flex;
   background-color: white;
   height: 102px;
   position: absolute;
@@ -33,4 +38,15 @@ body {
   left: 0;
   right: 0;
   border-top: 4px black solid;
+}
+
+.attack {
+  width: 66.66%
+}
+
+.type {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 33.33%
 }
