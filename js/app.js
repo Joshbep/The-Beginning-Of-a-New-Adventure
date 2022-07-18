@@ -30,6 +30,12 @@
 //player to map boundary collisions - done
 //foreground objects - done
 //player movement animation -- done
+
+// battle sequences:
+// battle activation
+// transition map to battle sequence
+//draw the background for the battle
+// add battle sprites
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
 
