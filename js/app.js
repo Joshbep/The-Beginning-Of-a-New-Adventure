@@ -340,7 +340,7 @@ playerUpBattle.height = 700
 const playerBattle = new Sprite({
   position: {
     x:160,
-    y:400
+    y:350
   },
   image: playerUpBattle,
   frames: {
