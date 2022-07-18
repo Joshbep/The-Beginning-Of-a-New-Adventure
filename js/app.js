@@ -200,6 +200,8 @@ const animate = () => {
         && Math.random() < 0.01
       ) {
         console.log('activate battle')
+        //deactivate current animation loop
+        window.cancelAnimationFrame(animationId)
         battle.initiated = true
         gsap.to('.battleChange', {
           opacity: 1,
@@ -212,9 +214,8 @@ const animate = () => {
               duration: 0.4
             })
           //activate a new animation loop
+          animateBattle();
 
-          //deactivate current animation loop
-          window.cancelAnimationFrame(animationId)
           }
         })
         break
@@ -314,6 +315,10 @@ const animate = () => {
     })  }
 }
 animate()
+const animateBattle = () => {
+  window.requestAnimationFrame(animateBattle)
+  console.log('animating battle')
+}
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
