@@ -343,7 +343,8 @@ const babyDragon = new Sprite({
   image: dragonImage,
   frames: {
     max:4
-  }
+  },
+  animate: true
 })
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
