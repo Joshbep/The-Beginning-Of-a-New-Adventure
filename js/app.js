@@ -325,7 +325,7 @@ const animate = () => {
 }
 // animate()
 const battleBackgroundImg = new Image()
-battleBackgroundImg.src = './img/battleBackground.png';
+battleBackgroundImg.src = './img/sandBattle.png';
 const battleBackground = new Sprite({
   position: {
     x: 0,
