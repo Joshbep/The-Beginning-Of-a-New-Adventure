@@ -6,7 +6,6 @@ body {
   height: 576px;
   position: relative;
   margin: 0 auto;
-  outline: 1px solid white;
   transform: scale(1) translateY(10%);
 }
 

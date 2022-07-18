@@ -333,9 +333,22 @@ const battleBackground = new Sprite({
   },
   image: battleBackgroundImg
 })
+const dragonImage = new Image()
+dragonImage.src = './img/draggleSprite.png';
+const babyDragon = new Sprite({
+  position: {
+    x:650,
+    y:200
+  },
+  image: dragonImage,
+  frames: {
+    max:4
+  }
+})
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
+  babyDragon.draw()
 }
 animateBattle();
 //https://www.w3schools.com/js/js_window.asp

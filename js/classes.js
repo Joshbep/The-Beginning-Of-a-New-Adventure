@@ -12,7 +12,8 @@ class Sprite {
     this.sprites = sprites
   }
   draw() {
-    ctx.drawImage(this.image,
+    ctx.drawImage(
+      this.image,
       this.frames.val * this.width, // x coordinate
       0, // y coordinate
       this.image.width / this.frames.max, // crop width
