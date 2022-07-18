@@ -324,7 +324,7 @@ const animate = () => {
       moveable.position.x -= 3
     })  }
 }
-animate()
+// animate()
 const battleBackgroundImg = new Image()
 battleBackgroundImg.src = './img/sandBattle.png';
 const battleBackground = new Sprite({
@@ -334,12 +334,28 @@ const battleBackground = new Sprite({
   },
   image: battleBackgroundImg
 })
+const playerUpBattle = new Image()
+playerUpBattle.src = './img/playerRightBattle.png';
+playerUpBattle.height = 700
+const playerBattle = new Sprite({
+  position: {
+    x:220,
+    y:400
+  },
+  image: playerUpBattle,
+  frames: {
+    max:4,
+    hold: 0
+  },
+  animate: true
+})
+
 const dragonImage = new Image()
 dragonImage.src = './img/draggleSprite.png';
 const babyDragon = new Sprite({
   position: {
-    x:650,
-    y:200
+    x:670,
+    y:220
   },
   image: dragonImage,
   frames: {
@@ -352,8 +368,9 @@ const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
   babyDragon.draw()
+  playerBattle.draw()
 }
-// animateBattle();
+animateBattle();
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
