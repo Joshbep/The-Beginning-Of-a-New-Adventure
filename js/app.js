@@ -204,7 +204,7 @@ const animate = () => {
           rectangle2: battleZone
         }) &&
         overlappingArea > (player.width * player.height) / 2
-        && Math.random() < 0.01
+        && Math.random() < 0.05
       ) {
         console.log('activate battle')
         //deactivate current animation loop
