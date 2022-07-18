@@ -324,7 +324,7 @@ const animate = () => {
       moveable.position.x -= 3
     })  }
 }
-// animate()
+animate()
 const battleBackgroundImg = new Image()
 battleBackgroundImg.src = './img/sandBattle.png';
 const battleBackground = new Sprite({
@@ -353,7 +353,7 @@ const animateBattle = () => {
   battleBackground.draw()
   babyDragon.draw()
 }
-animateBattle();
+// animateBattle();
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
