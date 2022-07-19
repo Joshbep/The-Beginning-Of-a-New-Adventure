@@ -73,5 +73,34 @@ button:hover {
 }
 
 .health {
-  
+  position: absolute;
+  background-color: white;
+  width: 250px;
+  top: 50px;
+  left: 50px;
+  border: 4px black solid;
+  padding: 12px;
+}
+
+.bigHealth{
+  position: relative;
+}
+
+.healthBar {
+  height: 5px;
+  background-color: #ccc;
+  margin-top: 10px;
+}
+
+.healthBar2 {
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.dragon {
+  font-size: 16px;
 }
