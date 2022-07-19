@@ -379,6 +379,14 @@ const animateBattle = () => {
   playerBattle.draw()
 }
 animateBattle();
+
+
+document.querySelectorAll('button').forEach((button) =>{
+  button.addEventListener('click', () => {
+    playerUpBattle.attack({})
+  })
+})
+
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''

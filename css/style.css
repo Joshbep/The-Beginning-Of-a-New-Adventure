@@ -109,7 +109,7 @@ button:hover {
   position: absolute;
   background-color: white;
   width: 250px;
-  top: 350px;
+  bottom: 125px;
   right: 50px;
   border: 4px black solid;
   padding: 12px;
