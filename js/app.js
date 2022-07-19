@@ -35,7 +35,15 @@
 // battle activation - done
 // transition map to battle sequence - done
 //draw the background for the battle- done
-// add battle sprites
+// add battle sprites - done
+//add attack bar interface - done
+//add  health bar interface
+//player attacks
+//enemy attacks
+//queuing dialogue
+//battle end
+//transition back to map
+//music and sound effects
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
 
@@ -324,7 +332,7 @@ const animate = () => {
       moveable.position.x -= 3
     })  }
 }
-animate()
+// animate()
 const battleBackgroundImg = new Image()
 battleBackgroundImg.src = './img/sandBattle.png';
 const battleBackground = new Sprite({
@@ -370,7 +378,7 @@ const animateBattle = () => {
   babyDragon.draw()
   playerBattle.draw()
 }
-// animateBattle();
+animateBattle();
 //https://www.w3schools.com/js/js_window.asp
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
