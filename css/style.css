@@ -104,3 +104,36 @@ button:hover {
 .dragon {
   font-size: 16px;
 }
+
+.health1 {
+  position: absolute;
+  background-color: white;
+  width: 250px;
+  top: 350px;
+  right: 50px;
+  border: 4px black solid;
+  padding: 12px;
+}
+
+.bigHealth1{
+  position: relative;
+}
+
+.playerHealth {
+  height: 5px;
+  background-color: #ccc;
+  margin-top: 10px;
+}
+
+.playerHealth1 {
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.player1 {
+  font-size: 16px;
+}

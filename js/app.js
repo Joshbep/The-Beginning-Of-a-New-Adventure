@@ -37,7 +37,7 @@
 //draw the background for the battle- done
 // add battle sprites - done
 //add attack bar interface - done
-//add  health bar interface
+//add  health bar interface - done
 //player attacks
 //enemy attacks
 //queuing dialogue
