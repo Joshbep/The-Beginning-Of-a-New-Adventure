@@ -255,7 +255,7 @@ class Monster extends Sprite {
       fireballImage.src = './img/fireball.png'
       const fireball = new Sprite({
         position: {
-          x:this.position.x,
+          x: this.position.x,
           y: this.position.y
         },
         image: fireballImage,
@@ -269,7 +269,7 @@ class Monster extends Sprite {
       renderedSprites.splice(1, 0, fireball)
 
       gsap.to(fireball.position, {
-        x: recipient.position.x,
+        x: recipient.position.x + 100,
         y: recipient.position.y,
         onComplete: () => {
           gsap.to(healthBar, {
