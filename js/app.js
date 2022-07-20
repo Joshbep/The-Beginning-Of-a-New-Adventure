@@ -40,6 +40,7 @@
 //add  health bar interface - done
 //player attacks
 //attack tackle - done
+//attacks Fireball
 //enemy attacks
 //queuing dialogue
 //battle end
@@ -374,23 +375,26 @@ const babyDragon = new Sprite({
   animate: true,
   isEnemy: true
 })
+
+const renderedSprites = [babyDragon, player1]
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
-  babyDragon.draw()
-  player1.draw()
+
+  renderedSprites.forEach ((sprite) => {
+    sprite.draw()
+  })
 }
 animateBattle();
 
-
+// event listeners for attack buttons
 document.querySelectorAll('button').forEach((button) =>{
-  button.addEventListener('click', () => {
-    player1.attack({ attack: {
-      name: 'Tackle',
-      damage: 10,
-      type: 'Normal'
-    },
-    recipient: babyDragon
+  button.addEventListener('click', (e) => {
+    const selectedAttack = attacks[e.currentTarget.innerHTML]
+    player1.attack({
+      attack: selectedAttack,
+    recipient: babyDragon,
+    renderedSprites
   })
   })
 })
