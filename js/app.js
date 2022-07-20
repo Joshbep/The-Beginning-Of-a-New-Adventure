@@ -40,7 +40,7 @@
 //add  health bar interface - done
 //player attacks
 //attack tackle - done
-//attacks Fireball
+//attacks Fireball - done
 //enemy attacks
 //queuing dialogue
 //battle end
@@ -393,9 +393,9 @@ document.querySelectorAll('button').forEach((button) =>{
     const selectedAttack = attacks[e.currentTarget.innerHTML]
     player1.attack({
       attack: selectedAttack,
-    recipient: babyDragon,
-    renderedSprites
-  })
+      recipient: babyDragon,
+      renderedSprites
+    })
   })
 })
 

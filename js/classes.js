@@ -55,7 +55,7 @@ class Sprite {
   attack({attack, recipient, renderedSprites }) {
     let healthBar = '.enemyHealth'
     if(this.isEnemy) healthBar = '.playerHealth1'
-    this.health -= attack.damage
+    this.health = this.health - attack.damage
     let rotation = 1
     if(this.isEnemy) rotation = -2.2
 
@@ -101,7 +101,94 @@ class Sprite {
           renderedSprites.splice(1, 1)
         }
       })
-      break
+      break;
+
+      case 'Rockthrow':
+      const rockthrowImage = new Image()
+      rockthrowImage.src = './img/rockThrow.png'
+      const rockthrow = new Sprite({
+        position: {
+          x:this.position.x,
+          y: this.position.y
+        },
+        image: rockthrowImage,
+        frames: {
+          max: 4,
+          hold: 10
+        },
+        animate: true,
+        rotation: rotation
+      })
+      renderedSprites.splice(1, 0, rockthrow)
+
+      gsap.to(rockthrow.position, {
+        x: recipient.position.x,
+        y: recipient.position.y,
+        onComplete: () => {
+          gsap.to(healthBar, {
+            width: this.health + '%'
+          })
+          gsap.to(recipient.position, {
+            x: recipient.position.x + 10,
+            yoyo: true,
+            repeat: 5,
+            duration: 0.08,
+          })
+
+          gsap.to(recipient, {
+            opacity: 0,
+            repeat: 5,
+            yoyo: true,
+            duration: 0.1
+          })
+          renderedSprites.splice(1, 1)
+        }
+      })
+      break;
+
+      case 'Energyblast':
+      const energyBlastImage = new Image()
+      energyBlastImage.src = './img/energyBall.png'
+      const energyblast = new Sprite({
+        position: {
+          x:this.position.x,
+          y: this.position.y
+        },
+        image: energyBlastImage,
+        frames: {
+          max: 4,
+          hold: 10
+        },
+        animate: true,
+        rotation: rotation
+      })
+      renderedSprites.splice(1, 0, energyblast)
+
+      gsap.to(energyblast.position, {
+        x: recipient.position.x,
+        y: recipient.position.y,
+        onComplete: () => {
+          gsap.to(healthBar, {
+            width: this.health + '%'
+          })
+          gsap.to(recipient.position, {
+            x: recipient.position.x + 10,
+            yoyo: true,
+            repeat: 5,
+            duration: 0.08,
+          })
+
+          gsap.to(recipient, {
+            opacity: 0,
+            repeat: 5,
+            yoyo: true,
+            duration: 0.08
+          })
+          renderedSprites.splice(1, 1)
+        }
+      })
+      break;
+
       case 'Tackle':
       const timeLine = gsap.timeline()
 

@@ -60,6 +60,15 @@ button {
   border-right: 4px black solid;
 }
 
+.attack3 {
+  border-top: 4px black solid;
+  border-right: 4px black solid;
+}
+
+.attack4 {
+  border-top: 4px black solid;
+}
+
 .type {
  display: flex;
  align-items: center;
