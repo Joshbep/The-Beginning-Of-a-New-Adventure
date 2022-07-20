@@ -39,6 +39,7 @@
 //add attack bar interface - done
 //add  health bar interface - done
 //player attacks
+//attack tackle - done
 //enemy attacks
 //queuing dialogue
 //battle end
@@ -345,7 +346,7 @@ const battleBackground = new Sprite({
 const playerUpBattle = new Image()
 playerUpBattle.src = './img/playerRightBattle.png';
 playerUpBattle.height = 700
-const playerBattle = new Sprite({
+const player1 = new Sprite({
   position: {
     x:160,
     y:350
@@ -370,20 +371,27 @@ const babyDragon = new Sprite({
     max:4,
     hold: 30
   },
-  animate: true
+  animate: true,
+  isEnemy: true
 })
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
   babyDragon.draw()
-  playerBattle.draw()
+  player1.draw()
 }
 animateBattle();
 
 
 document.querySelectorAll('button').forEach((button) =>{
   button.addEventListener('click', () => {
-    playerUpBattle.attack({})
+    player1.attack({ attack: {
+      name: 'Tackle',
+      damage: 10,
+      type: 'Normal'
+    },
+    recipient: babyDragon
+  })
   })
 })
 

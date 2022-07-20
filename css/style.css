@@ -86,13 +86,13 @@ button:hover {
   position: relative;
 }
 
-.healthBar {
+.greyHealthBar {
   height: 5px;
   background-color: #ccc;
   margin-top: 10px;
 }
 
-.healthBar2 {
+.enemyHealth {
   height: 5px;
   background-color: red;
   position: absolute;
@@ -101,7 +101,7 @@ button:hover {
   right: 0;
 }
 
-.dragon {
+.enemy {
   font-size: 16px;
 }
 
@@ -119,7 +119,7 @@ button:hover {
   position: relative;
 }
 
-.playerHealth {
+.playerGreyHealth {
   height: 5px;
   background-color: #ccc;
   margin-top: 10px;
