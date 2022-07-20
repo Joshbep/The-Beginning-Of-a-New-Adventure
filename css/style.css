@@ -146,3 +146,15 @@ button:hover {
 .player1 {
   font-size: 16px;
 }
+
+.battleText {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 12px;
+  display: none;
+  cursor: pointer;
+}

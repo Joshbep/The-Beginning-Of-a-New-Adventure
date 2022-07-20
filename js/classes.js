@@ -3,7 +3,7 @@
 //https://www.javascripttutorial.net/web-apis/javascript-translate/
 
 class Sprite {
-  constructor ({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, isEnemy = false, rotation = 0 }) {
+  constructor ({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, isEnemy = false, rotation = 0, name }) {
     this.position = position
     this.image = image
     this.frames = {...frames, val: 0, elapsed: 0 }
@@ -18,6 +18,7 @@ class Sprite {
     this.health = 100
     this.isEnemy = isEnemy
     this.rotation = rotation
+    this.name = name
   }
   draw() {
     ctx.save()
@@ -53,9 +54,12 @@ class Sprite {
     }
   }
   attack({attack, recipient, renderedSprites }) {
+    const battleText = document.querySelector('.battleText')
+    battleText.style.display = 'block'
+    battleText.innerHTML = `${this.name} used ${attack.name}`
     let healthBar = '.enemyHealth'
     if(this.isEnemy) healthBar = '.playerHealth1'
-    this.health = this.health - attack.damage
+    this.health -= attack.damage
     let rotation = 1
     if(this.isEnemy) rotation = -2.2
 
