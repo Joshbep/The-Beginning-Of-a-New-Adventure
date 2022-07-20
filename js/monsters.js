@@ -33,6 +33,6 @@ const monsters = {
     animate: true,
     isEnemy: true,
     name: 'Baby dragon',
-    attacks: [attacks.Tackle, attacks.fireball]
+    attacks: [attacks.Tackle, attacks.Fireball]
   }
 }

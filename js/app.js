@@ -41,8 +41,10 @@
 //player attacks
 //attack tackle - done
 //attacks Fireball - done
-//enemy attacks
-//queuing dialogue
+//enemy attacks - done
+//queuing dialogue - done
+//populate attacks based on chosen monster
+//randomizing attacks - done
 //battle end
 //transition back to map
 //music and sound effects

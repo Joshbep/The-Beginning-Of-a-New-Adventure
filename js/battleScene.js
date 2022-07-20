@@ -43,16 +43,11 @@ document.querySelectorAll('button').forEach((button) =>{
       recipient: babyDragon,
       renderedSprites
     })
+
+    const randomAttack = babyDragon.attacks[Math.floor(Math.random() * babyDragon.attacks.length)]
     queue.push(() => {
       babyDragon.attack({
-        attack: attacks.Tackle,
-        recipient: player1,
-        renderedSprites
-      })
-    })
-    queue.push(() => {
-      babyDragon.attack({
-        attack: attacks.Fireball,
+        attack: randomAttack,
         recipient: player1,
         renderedSprites
       })
