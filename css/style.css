@@ -52,21 +52,12 @@ button {
 
 .attack {
   width: 66.66%;
+}
+
+.attacksBox {
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-}
-
-.attack1 {
-  border-right: 4px black solid;
-}
-
-.attack3 {
-  border-top: 4px black solid;
-  border-right: 4px black solid;
-}
-
-.attack4 {
-  border-top: 4px black solid;
 }
 
 .type {

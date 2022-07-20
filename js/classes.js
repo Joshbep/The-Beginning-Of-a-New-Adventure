@@ -16,7 +16,6 @@ class Sprite {
     this.sprites = sprites
     this.opacity = 1
     this.rotation = rotation
-    this.health = 100
     this.name = name
   }
   draw() {
@@ -52,192 +51,16 @@ class Sprite {
     else this.frames.val = 0
     }
   }
-  attack({attack, recipient, renderedSprites }) {
-    const battleText = document.querySelector('.battleText')
-    battleText.style.display = 'block'
-    battleText.innerHTML = `${this.name} used ${attack.name}`
-    let healthBar = '.enemyHealth'
-    if(this.isEnemy) healthBar = '.playerHealth1'
-    this.health -= attack.damage
-    let rotation = 1
-    if(this.isEnemy) rotation = -2.2
-
-    switch (attack.name) {
-      case 'Fireball':
-      const fireballImage = new Image()
-      fireballImage.src = './img/fireball.png'
-      const fireball = new Sprite({
-        position: {
-          x:this.position.x,
-          y: this.position.y
-        },
-        image: fireballImage,
-        frames: {
-          max: 4,
-          hold: 10
-        },
-        animate: true,
-        rotation: rotation
-      })
-      renderedSprites.splice(1, 0, fireball)
-
-      gsap.to(fireball.position, {
-        x: recipient.position.x,
-        y: recipient.position.y,
-        onComplete: () => {
-          gsap.to(healthBar, {
-            width: this.health + '%'
-          })
-          gsap.to(recipient.position, {
-            x: recipient.position.x + 10,
-            yoyo: true,
-            repeat: 5,
-            duration: 0.08,
-          })
-
-          gsap.to(recipient, {
-            opacity: 0,
-            repeat: 5,
-            yoyo: true,
-            duration: 0.08
-          })
-          renderedSprites.splice(1, 1)
-        }
-      })
-      break;
-
-      case 'Rockthrow':
-      const rockthrowImage = new Image()
-      rockthrowImage.src = './img/rockThrow.png'
-      const rockthrow = new Sprite({
-        position: {
-          x:this.position.x,
-          y: this.position.y
-        },
-        image: rockthrowImage,
-        frames: {
-          max: 4,
-          hold: 10
-        },
-        animate: true,
-        rotation: rotation
-      })
-      renderedSprites.splice(1, 0, rockthrow)
-
-      gsap.to(rockthrow.position, {
-        x: recipient.position.x,
-        y: recipient.position.y,
-        onComplete: () => {
-          gsap.to(healthBar, {
-            width: this.health + '%'
-          })
-          gsap.to(recipient.position, {
-            x: recipient.position.x + 10,
-            yoyo: true,
-            repeat: 5,
-            duration: 0.08,
-          })
-
-          gsap.to(recipient, {
-            opacity: 0,
-            repeat: 5,
-            yoyo: true,
-            duration: 0.1
-          })
-          renderedSprites.splice(1, 1)
-        }
-      })
-      break;
-
-      case 'Energyblast':
-      const energyBlastImage = new Image()
-      energyBlastImage.src = './img/energyBall.png'
-      const energyblast = new Sprite({
-        position: {
-          x:this.position.x,
-          y: this.position.y
-        },
-        image: energyBlastImage,
-        frames: {
-          max: 4,
-          hold: 10
-        },
-        animate: true,
-        rotation: rotation
-      })
-      renderedSprites.splice(1, 0, energyblast)
-
-      gsap.to(energyblast.position, {
-        x: recipient.position.x,
-        y: recipient.position.y,
-        onComplete: () => {
-          gsap.to(healthBar, {
-            width: this.health + '%'
-          })
-          gsap.to(recipient.position, {
-            x: recipient.position.x + 10,
-            yoyo: true,
-            repeat: 5,
-            duration: 0.08,
-          })
-
-          gsap.to(recipient, {
-            opacity: 0,
-            repeat: 5,
-            yoyo: true,
-            duration: 0.08
-          })
-          renderedSprites.splice(1, 1)
-        }
-      })
-      break;
-
-      case 'Tackle':
-      const timeLine = gsap.timeline()
-
-      let movementDistance = 20
-      if(this.isEnemy) movementDistance = -20
-
-      timeLine.to(this.position, {
-        x: this.position.x - movementDistance
-      }).to(this.position, {
-        x: this.position.x + movementDistance * 2,
-        duration: 0.1,
-        onComplete: () => {
-          // enemy gets hit
-          gsap.to(healthBar, {
-            width: this.health + '%'
-          })
-          gsap.to(recipient.position, {
-            x: recipient.position.x + 10,
-            yoyo: true,
-            repeat: 5,
-            duration: 0.08,
-          })
-
-          gsap.to(recipient, {
-            opacity: 0,
-            repeat: 5,
-            yoyo: true,
-            duration: 0.08
-          })
-        }
-      }).to(this.position, {
-        x: this.position.x
-      })
-      break;
-    }
-
-  }
 }
 
 class Monster extends Sprite {
-  constructor({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, isEnemy = false, rotation = 0, name })
+  constructor({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, isEnemy = false, rotation = 0, name, attacks })
   {
     super({ position, velocity, image, frames, sprites, animate, rotation })
     this.isEnemy = isEnemy
     this.name = name
     this.health = 100
+    this.attacks = attacks
   }
   attack({attack, recipient, renderedSprites }) {
     const battleText = document.querySelector('.battleText')

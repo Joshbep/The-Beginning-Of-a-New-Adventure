@@ -9,14 +9,20 @@ const battleBackground = new Sprite({
   image: battleBackgroundImg
 })
 
-const player1 = new Sprite(sprites.Player1)
+const player1 = new Monster(monsters.Player1)
 const babyDragon = new Monster(monsters.BabyDragon)
 
 const renderedSprites = [babyDragon, player1]
-const button = document.createElement('button')
-button.innerHTML = 'Fireball'
-const attacksBox = document.querySelector('.attacksBox')
-attacksBox.append(button)
+
+player1.attacks.forEach(attack => {
+  const button = document.createElement('button')
+  button.style.border = "thin solid black"
+  button.innerHTML = attack.name
+  const attacksBox = document.querySelector('.attacksBox')
+  attacksBox.append(button)
+})
+
+
 const animateBattle = () => {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
