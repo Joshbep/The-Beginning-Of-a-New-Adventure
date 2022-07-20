@@ -3,7 +3,7 @@
 //https://www.javascripttutorial.net/web-apis/javascript-translate/
 
 class Sprite {
-  constructor ({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, rotation = 0, isEnemy = false, name }) {
+  constructor ({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, rotation = 0, name }) {
     this.position = position
     this.image = image
     this.frames = {...frames, val: 0, elapsed: 0 }
@@ -17,7 +17,6 @@ class Sprite {
     this.opacity = 1
     this.rotation = rotation
     this.health = 100
-    this.isEnemy = isEnemy
     this.name = name
   }
   draw() {
@@ -277,7 +276,7 @@ class Monster extends Sprite {
             width: this.health + '%'
           })
           gsap.to(recipient.position, {
-            x: recipient.position.x + 10,
+            x: recipient.position.x,
             yoyo: true,
             repeat: 5,
             duration: 0.08,
