@@ -63,12 +63,11 @@ for (let i = 0; i < battleZonesArr.length; i += 50) {
   battleZonesMap.push(battleZonesArr.slice(i, 50 + i))
 }
 
-
+const boundaries = []
 const offset = {
   x: -1268,
   y:-525
 }
-const boundaries = []
 
 collisionsMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
@@ -76,7 +75,9 @@ collisionsMap.forEach((row, i) => {
     boundaries.push(new Boundary({position: {
       x: j * Boundary.width + offset.x,
       y: i * Boundary.height + offset.y
-    }}))
+      }
+    })
+    )
   })
 })
 
@@ -87,7 +88,9 @@ battleZonesMap.forEach((row, i) => {
     battleZones.push(new Boundary({position: {
       x: j * Boundary.width + offset.x,
       y: i * Boundary.height + offset.y
-    }}))
+      }
+    })
+    )
   })
 })
 // this is how you draw something onto the screen
@@ -175,6 +178,7 @@ const keys = {
 }
 
 const moveables = [background, ...boundaries, foreground, grass, ...battleZones]
+const renderables = [background, ...boundaries, ...battleZones, grass, foreground, player]
 const rectangularCollision = ({rectangle1, rectangle2}) => {
   return (
     rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
@@ -189,16 +193,19 @@ const battle = {
 
 const animate = () => {
   const animationId = window.requestAnimationFrame(animate)
-  background.draw()
-  grass.draw()
-  boundaries.forEach(boundary => {
-  boundary.draw()
+  // background.draw()
+  // grass.draw()
+  // boundaries.forEach(boundary => {
+  // boundary.draw()
+  // })
+  // battleZones.forEach(battleZone => {
+  //   battleZone.draw()
+  // })
+  // player.draw()
+  // foreground.draw()
+  renderables.forEach((renderable) => {
+    renderable.draw()
   })
-  battleZones.forEach(battleZone => {
-    battleZone.draw()
-  })
-  player.draw()
-  foreground.draw()
 
   let moving = true
   player.animate = false
@@ -215,17 +222,18 @@ const animate = () => {
           rectangle2: battleZone
         }) &&
         overlappingArea > (player.width * player.height) / 2
-        && Math.random() < 0.03
+        && Math.random() < 0.02
       ) {
         //deactivate current animation loop
         window.cancelAnimationFrame(animationId)
-        audio.Map.stop()
-        audio.initBattle.play()
-        audio.battle.play()
+        audio.Map.stop();
+        audio.initBattle.play();
+        audio.battle.play();
+
         battle.initiated = true
         gsap.to('.battleChange', {
           opacity: 1,
-          repeat: 2,
+          repeat: 3,
           yoyo: true,
           duration: 0.4,
           onComplete() {
@@ -258,8 +266,9 @@ const animate = () => {
           rectangle2: {...boundary, position: {
             x: boundary.position.x,
             y: boundary.position.y + 3
-          }}
-        })
+          }
+        }
+      })
       ) {
         moving = false
         break

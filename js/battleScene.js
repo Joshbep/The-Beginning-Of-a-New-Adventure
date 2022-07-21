@@ -9,8 +9,8 @@ const battleBackground = new Sprite({
   image: battleBackgroundImg
 })
 
-let player1
 let babyDragon
+let player1
 let renderedSprites
 let battleAnimationId
 let queue
@@ -27,7 +27,7 @@ const initBattle = () => {
   renderedSprites = [babyDragon, player1]
   queue = []
 
-  player1.attacks.forEach(attack => {
+  player1.attacks.forEach((attack) => {
     const button = document.createElement('button')
     button.style.border = "thin solid black"
     button.innerHTML = attack.name
@@ -77,6 +77,8 @@ const initBattle = () => {
           queue.push(() => {
             player1.faint()
           })
+
+          queue.push(() => {
           gsap.to('.battleChange', {
             opacity: 1,
             onComplete: () => {
@@ -88,7 +90,8 @@ const initBattle = () => {
               })
               battle.initiated = false
               audio.Map.play()
-            }
+              }
+            })
           })
         }
       })

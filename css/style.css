@@ -15,6 +15,18 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+.battleChange {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
 .game-container {
   width: 1024px;
   height: 576px;
@@ -26,18 +38,6 @@ button {
 
 .game-container canvas {
   image-rendering: pixelated;
-}
-
-.battleChange {
-  background-color: black;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 10;
 }
 
 .battle {
