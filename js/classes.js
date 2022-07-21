@@ -90,7 +90,7 @@ class Monster extends Sprite {
 
     switch (attack.name) {
       case 'Fireball':
-      audio.initFireball.play()
+      audio.fireBall.play()
       const fireballImage = new Image()
       fireballImage.src = './img/fireball.png'
       const fireball = new Sprite({
@@ -107,7 +107,7 @@ class Monster extends Sprite {
         rotation: rotation
       })
       renderedSprites.splice(1, 0, fireball)
-
+      if (this.isEnemy) {
       gsap.to(fireball.position, {
         x: recipient.position.x + 100,
         y: recipient.position.y,
@@ -133,6 +133,31 @@ class Monster extends Sprite {
           renderedSprites.splice(1, 1)
         }
       })
+    } else gsap.to(fireball.position, {
+      x: recipient.position.x,
+      y: recipient.position.y,
+      onComplete: () => {
+        //enemy gets hit
+        audio.fireballHit.play()
+        gsap.to(healthBar, {
+          width: recipient.health + '%'
+        })
+        gsap.to(recipient.position, {
+          x: recipient.position.x,
+          yoyo: true,
+          repeat: 5,
+          duration: 0.08,
+        })
+
+        gsap.to(recipient, {
+          opacity: 0,
+          repeat: 5,
+          yoyo: true,
+          duration: 0.08
+        })
+        renderedSprites.splice(1, 1)
+      }
+    })
       break
 
       case 'Rockthrow':

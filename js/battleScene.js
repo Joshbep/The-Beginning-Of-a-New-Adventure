@@ -15,7 +15,7 @@ let renderedSprites
 let battleAnimationId
 let queue
 
-const initBattle = () => {
+function initBattle() {
   document.querySelector('.battleInterface').style.display = 'block'
   document.querySelector('.battleText').style.display = 'none'
   document.querySelector('.enemyHealth').style.width = '100%'
@@ -97,7 +97,7 @@ const initBattle = () => {
         }
       })
     })
-    
+
     button.addEventListener('mouseenter', (e) => {
       const selectedAttack = attacks[e.currentTarget.innerHTML]
       document.querySelector('.type').innerHTML = selectedAttack.type
