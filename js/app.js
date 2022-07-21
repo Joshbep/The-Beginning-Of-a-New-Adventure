@@ -233,6 +233,7 @@ const animate = () => {
               duration: 0.4,
               onComplete () {
                 //activate a new animation loop
+                initBattle();
                 animateBattle();
                 gsap.to('.battleChange', {opacity: 0, duration: 0.4})
               }

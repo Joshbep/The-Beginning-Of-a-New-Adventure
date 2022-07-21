@@ -37,6 +37,7 @@ button {
   left: 0;
   opacity: 0;
   pointer-events: none;
+  z-index: 10;
 }
 
 .battle {
