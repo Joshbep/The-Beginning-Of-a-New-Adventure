@@ -35,7 +35,7 @@ const audio = {
     volume: 0.1
   }),
   initFireball: new Howl({
-    src: './sounds/fire.wav',
+    src: './sounds/Fire.wav',
     html5: true,
     volume: 0.1
   }),
