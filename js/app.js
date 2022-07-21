@@ -193,19 +193,19 @@ const battle = {
 
 const animate = () => {
   const animationId = window.requestAnimationFrame(animate)
-  // background.draw()
-  // grass.draw()
-  // boundaries.forEach(boundary => {
-  // boundary.draw()
-  // })
-  // battleZones.forEach(battleZone => {
-  //   battleZone.draw()
-  // })
-  // player.draw()
-  // foreground.draw()
-  renderables.forEach((renderable) => {
-    renderable.draw()
+  background.draw()
+  grass.draw()
+  boundaries.forEach(boundary => {
+  boundary.draw()
   })
+  battleZones.forEach(battleZone => {
+    battleZone.draw()
+  })
+  player.draw()
+  foreground.draw()
+  // renderables.forEach((renderable) => {
+  //   renderable.draw()
+  // })
 
   let moving = true
   player.animate = false
