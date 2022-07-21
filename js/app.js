@@ -178,7 +178,7 @@ const keys = {
 }
 
 const moveables = [background, ...boundaries, foreground, grass, ...battleZones]
-const renderables = [background, ...boundaries, ...battleZones, grass, foreground, player]
+const renderables = [background, ...boundaries, ...battleZones, grass, player, foreground]
 const rectangularCollision = ({rectangle1, rectangle2}) => {
   return (
     rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
