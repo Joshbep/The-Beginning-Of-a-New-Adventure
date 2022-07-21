@@ -8,7 +8,7 @@ class Sprite {
     this.image = new Image()
     this.frames = {...frames, val: 0, elapsed: 0 }
     this.image.onload = () => {
-      this.width = this.image.width / this.frames.max
+      this.width = (this.image.width / this.frames.max)
       this.height = this.image.height
     }
     this.image.src = image.src
@@ -43,9 +43,10 @@ class Sprite {
     )
     ctx.restore()
     if (!this.animate) return
-      if (this.frames.max > 1) {
+
+    if (this.frames.max > 1) {
         this.frames.elapsed++
-      }
+    }
     if (this.frames.elapsed % this.frames.hold === 0) {
       if (this.frames.val < this.frames.max - 1) this.frames.val++
     else this.frames.val = 0
@@ -54,7 +55,7 @@ class Sprite {
 }
 
 class Monster extends Sprite {
-  constructor({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, isEnemy = false, rotation = 0, name, attacks })
+  constructor({ position, velocity, image, frames = { max: 1, hold: 10 }, sprites, animate = false, rotation = 0, isEnemy = false, name, attacks })
   {
     super({ position, velocity, image, frames, sprites, animate, rotation })
     this.isEnemy = isEnemy
@@ -64,10 +65,10 @@ class Monster extends Sprite {
   }
   faint() {
     const battleText = document.querySelector('.battleText')
-    battleText.style.display = 'block'
+    // battleText.style.display = 'block'
     battleText.innerHTML = `${this.name} fainted`
     gsap.to(this.position, {
-      y: this.position + 20
+      y: this.position.y + 20
     })
     gsap.to(this, {
       opacity: 0
@@ -75,13 +76,15 @@ class Monster extends Sprite {
     audio.battle.stop()
     audio.victory.play()
   }
-  attack({attack, recipient, renderedSprites }) {
+  attack({ attack, recipient, renderedSprites }) {
     const battleText = document.querySelector('.battleText')
     battleText.style.display = 'block'
     battleText.innerHTML = `${this.name} used ${attack.name}`
     let healthBar = '.enemyHealth'
     if(this.isEnemy) healthBar = '.playerHealth1'
+
     recipient.health -= attack.damage
+
     let rotation = 1
     if(this.isEnemy) rotation = -2.2
 
@@ -109,6 +112,7 @@ class Monster extends Sprite {
         x: recipient.position.x + 100,
         y: recipient.position.y,
         onComplete: () => {
+          //enemy gets hit
           audio.fireballHit.play()
           gsap.to(healthBar, {
             width: recipient.health + '%'
@@ -129,7 +133,7 @@ class Monster extends Sprite {
           renderedSprites.splice(1, 1)
         }
       })
-      break;
+      break
 
       case 'Rockthrow':
       audio.rockThrow.play()
@@ -174,7 +178,7 @@ class Monster extends Sprite {
           renderedSprites.splice(1, 1)
         }
       })
-      break;
+      break
 
       case 'Energyblast':
       audio.energyBlast.play()
@@ -219,7 +223,7 @@ class Monster extends Sprite {
           renderedSprites.splice(1, 1)
         }
       })
-      break;
+      break
 
       case 'Tackle':
       const timeLine = gsap.timeline()
@@ -255,9 +259,8 @@ class Monster extends Sprite {
       }).to(this.position, {
         x: this.position.x
       })
-      break;
+      break
     }
-
   }
 }
 class Boundary {

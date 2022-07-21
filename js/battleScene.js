@@ -79,6 +79,7 @@ const initBattle = () => {
           })
 
           queue.push(() => {
+            //fade back to black
           gsap.to('.battleChange', {
             opacity: 1,
             onComplete: () => {
@@ -96,6 +97,7 @@ const initBattle = () => {
         }
       })
     })
+    
     button.addEventListener('mouseenter', (e) => {
       const selectedAttack = attacks[e.currentTarget.innerHTML]
       document.querySelector('.type').innerHTML = selectedAttack.type
