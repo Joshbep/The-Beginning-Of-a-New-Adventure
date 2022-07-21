@@ -50,7 +50,6 @@
 //music and sound effects
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d') //this has now created the canvas context, so we can start drawing
-
 canvas.width = 1024
 canvas.height = 576
 // map is 50 tiles wide
@@ -216,11 +215,13 @@ const animate = () => {
           rectangle2: battleZone
         }) &&
         overlappingArea > (player.width * player.height) / 2
-        && Math.random() < 0.05
+        && Math.random() < 0.03
       ) {
-        console.log('activate battle')
         //deactivate current animation loop
         window.cancelAnimationFrame(animationId)
+        audio.Map.stop()
+        audio.initBattle.play()
+        audio.battle.play()
         battle.initiated = true
         gsap.to('.battleChange', {
           opacity: 1,
@@ -384,5 +385,13 @@ window.addEventListener('keyup', (e) => {
     case 'd':
       keys.d.pressed = false
       break
+  }
+})
+
+let clicked = false
+addEventListener('click', () => {
+  if (!clicked){
+  audio.Map.play()
+  clicked = true
   }
 })

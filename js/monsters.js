@@ -1,17 +1,12 @@
-const dragonImage = new Image()
-dragonImage.src = './img/draggleSprite.png';
-
-const playerUpBattle = new Image()
-playerUpBattle.src = './img/playerRightBattle.png';
-playerUpBattle.height = 700
-
 const monsters = {
   Player1: {
     position: {
       x:160,
       y:350
     },
-    image: playerUpBattle,
+    image: {
+      src: './img/playerRightBattle.png'
+    },
     frames: {
       max:2,
       hold: 0
@@ -25,7 +20,9 @@ const monsters = {
       x:670,
       y:220
     },
-    image: dragonImage,
+    image: {
+      src: './img/draggleSprite.png'
+    },
     frames: {
       max:4,
       hold: 30

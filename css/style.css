@@ -150,3 +150,7 @@ button:hover {
   display: none;
   cursor: pointer;
 }
+
+.battleInterface {
+  display: none;
+}

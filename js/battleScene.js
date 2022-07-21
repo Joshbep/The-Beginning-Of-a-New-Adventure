@@ -16,6 +16,12 @@ let battleAnimationId
 let queue
 
 const initBattle = () => {
+  document.querySelector('.battleInterface').style.display = 'block'
+  document.querySelector('.battleText').style.display = 'none'
+  document.querySelector('.enemyHealth').style.width = '100%'
+  document.querySelector('.playerHealth1').style.width = '100%'
+  document.querySelector('.attacksBox').replaceChildren()
+
   babyDragon = new Monster(monsters.BabyDragon)
   player1 = new Monster(monsters.Player1)
   renderedSprites = [babyDragon, player1]
@@ -53,6 +59,8 @@ const initBattle = () => {
               gsap.to('.battleChange', {
                 opacity: 0
               })
+              battle.initiated = false
+              audio.Map.play()
             }
           })
         })
@@ -68,6 +76,19 @@ const initBattle = () => {
         if(player1.health <= 0) {
           queue.push(() => {
             player1.faint()
+          })
+          gsap.to('.battleChange', {
+            opacity: 1,
+            onComplete: () => {
+              cancelAnimationFrame(battleAnimationId)
+              animate()
+              document.querySelector('.battleInterface').style.display = 'none'
+              gsap.to('.battleChange', {
+                opacity: 0
+              })
+              battle.initiated = false
+              audio.Map.play()
+            }
           })
         }
       })
@@ -88,8 +109,9 @@ const animateBattle = () => {
     sprite.draw()
   })
 }
-initBattle();
-animateBattle();
+animate()
+// initBattle();
+// animateBattle();
 
 document.querySelector('.battleText').addEventListener('click', (e)=> {
   if(queue.length > 0) {
