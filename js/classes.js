@@ -183,7 +183,7 @@ class Monster extends Sprite {
       case 'Energyblast':
       audio.energyBlast.play()
       const energyBlastImage = new Image()
-      energyBlastImage.src = './img/energyBall.png'
+      energyBlastImage.src = './img/EnergyBall.png'
       const energyblast = new Sprite({
         position: {
           x:this.position.x,
