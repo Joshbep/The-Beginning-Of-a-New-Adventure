@@ -43,7 +43,13 @@ document.querySelectorAll('button').forEach((button) =>{
       recipient: babyDragon,
       renderedSprites
     })
-
+    if(babyDragon.health <= 0) {
+      queue.push(() => {
+        babyDragon.faint()
+      })
+      return
+    }
+    //enemy attacks
     const randomAttack = babyDragon.attacks[Math.floor(Math.random() * babyDragon.attacks.length)]
     queue.push(() => {
       babyDragon.attack({
@@ -51,7 +57,18 @@ document.querySelectorAll('button').forEach((button) =>{
         recipient: player1,
         renderedSprites
       })
+      if(player1.health <= 0) {
+        queue.push(() => {
+          player1.faint()
+        })
+        return
+      }
     })
+  })
+  button.addEventListener('mouseenter', (e) => {
+    const selectedAttack = attacks[e.currentTarget.innerHTML]
+    document.querySelector('.type').innerHTML = selectedAttack.type
+    document.querySelector('.type').style.color = selectedAttack.color
   })
 })
 

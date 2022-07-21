@@ -45,7 +45,7 @@
 //queuing dialogue - done
 //populate attacks based on chosen monster
 //randomizing attacks - done
-//battle end
+//battle end - done
 //transition back to map
 //music and sound effects
 const canvas = document.querySelector('canvas')

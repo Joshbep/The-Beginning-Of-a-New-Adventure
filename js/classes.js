@@ -62,13 +62,24 @@ class Monster extends Sprite {
     this.health = 100
     this.attacks = attacks
   }
+  faint() {
+    const battleText = document.querySelector('.battleText')
+    battleText.style.display = 'block'
+    battleText.innerHTML = `${this.name} fainted`
+    gsap.to(this.position, {
+      y: this.position + 20
+    })
+    gsap.to(this, {
+      opacity: 0
+    })
+  }
   attack({attack, recipient, renderedSprites }) {
     const battleText = document.querySelector('.battleText')
     battleText.style.display = 'block'
     battleText.innerHTML = `${this.name} used ${attack.name}`
     let healthBar = '.enemyHealth'
     if(this.isEnemy) healthBar = '.playerHealth1'
-    this.health -= attack.damage
+    recipient.health -= attack.damage
     let rotation = 1
     if(this.isEnemy) rotation = -2.2
 
@@ -96,7 +107,7 @@ class Monster extends Sprite {
         y: recipient.position.y,
         onComplete: () => {
           gsap.to(healthBar, {
-            width: this.health + '%'
+            width: recipient.health + '%'
           })
           gsap.to(recipient.position, {
             x: recipient.position.x,
@@ -139,7 +150,7 @@ class Monster extends Sprite {
         y: recipient.position.y,
         onComplete: () => {
           gsap.to(healthBar, {
-            width: this.health + '%'
+            width: recipient.health + '%'
           })
           gsap.to(recipient.position, {
             x: recipient.position.x + 10,
@@ -182,7 +193,7 @@ class Monster extends Sprite {
         y: recipient.position.y,
         onComplete: () => {
           gsap.to(healthBar, {
-            width: this.health + '%'
+            width: recipient.health + '%'
           })
           gsap.to(recipient.position, {
             x: recipient.position.x + 10,
@@ -216,7 +227,7 @@ class Monster extends Sprite {
         onComplete: () => {
           // enemy gets hit
           gsap.to(healthBar, {
-            width: this.health + '%'
+            width: recipient.health + '%'
           })
           gsap.to(recipient.position, {
             x: recipient.position.x + 10,
