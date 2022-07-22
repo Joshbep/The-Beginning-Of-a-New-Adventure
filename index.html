@@ -11,7 +11,19 @@
   <body>
     <div class="game-container">
       <div class='battleChange'></div>
-      <canvas class="game-canvas" width="352" height="198"></canvas>
+      <canvas class="game-canvas" width="352" height="198" style='display:none'></canvas>
+      <div class='titleScreen' style="display:block">
+        <h1 class='titleH1'>The Begining Of a New Adventure</h1>
+        <img class='titleImage'src="./Img/playerRightBattle2.png" />
+        <a class="startGame"href='#' onclick="startGame()">Start Game </a>
+        <ol>
+          <li>Move with WASD</li>
+          <br>
+          <li>Use your mouse to click during battle</li>
+          <br>
+          <li>Be careful in the hay, you never know what could jump out. 👀</li>
+        </ol>
+      </div>
       <div class='battleInterface'>
       <div class='health'>
         <h1 class= 'enemy'>Baby Dragon</h1>
@@ -41,6 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src= "./data/audio.js"></script>
+    <script type="text/javascript" src= "./js/titleScreen.js"></script>
     <script type="text/javascript" src= "./data/battleZones.js"></script>
     <script type="text/javascript" src= "./data/collisions.js"></script>
     <script type="text/javascript" src= "./data/attacks.js"></script>

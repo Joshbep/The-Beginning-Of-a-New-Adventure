@@ -114,7 +114,16 @@ const animateBattle = () => {
     sprite.draw()
   })
 }
-animate()
+
+function startGame () {
+  let startDiv = document.querySelector('.titleScreen');
+  let gameCanvas = document.querySelector('.game-canvas')
+  startDiv.style.display = 'none';
+  gameCanvas.style.display = 'block';
+  animate();
+}
+
+// animate()
 // initBattle();
 // animateBattle();
 

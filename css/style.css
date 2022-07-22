@@ -2,7 +2,7 @@
   font-family: 'Press Start 2P', cursive;
 }
 body {
-  background-color: black;
+  background-color: #333333;
 }
 
 h1 {
@@ -15,6 +15,50 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+
+.titleH1 {
+  color: #F39546;
+  font-size: 30px;
+  margin-bottom: 13px;
+}
+
+.titleImage {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+ol {
+  margin-top: 20px;
+  font-size: 12px;
+}
+.titleScreen {
+  font-family: 'Press Start 2P', cursive;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top:20%;
+  left:48%;
+  margin-top: -100px;
+  margin-left: -110px;
+  height:200px;
+  width:250px;
+  text-align: center;
+}
+
+.titleScreen a {
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size:2em;
+    display: inline-block;
+}
+
 .battleChange {
   background-color: black;
   position: absolute;
@@ -28,6 +72,7 @@ button {
 }
 
 .game-container {
+  background-color: black;
   width: 1024px;
   height: 576px;
   position: relative;
