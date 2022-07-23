@@ -1,7 +1,7 @@
 # Project-1-The Beginning Of a New Adventure
 
-![Title Preview](/img/StartGame.png)
 ![Start Game Preview](./img/title.png)
+![Title Preview](/img/StartGame.png)
 
 ## Description
 <div>
