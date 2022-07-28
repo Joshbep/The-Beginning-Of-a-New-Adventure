@@ -352,22 +352,20 @@ const animate = () => {
 //only works if we are running code directly to our browser from my understanding
 let lastKey = ''
 window.addEventListener('keydown', (e) => {
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
   switch (e.key) {
     case 'w':
       keys.w.pressed = true
       lastKey = 'w'
       break
-
     case 'a':
-        keys.a.pressed = true
-        lastKey = 'a'
-        break
+      keys.a.pressed = true
+      lastKey = 'a'
+      break
 
     case 's':
-          keys.s.pressed = true
-          lastKey = 's'
-          break
+      keys.s.pressed = true
+      lastKey = 's'
+      break
 
     case 'd':
       keys.d.pressed = true
@@ -377,20 +375,16 @@ window.addEventListener('keydown', (e) => {
 })
 
 window.addEventListener('keyup', (e) => {
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
   switch (e.key) {
     case 'w':
       keys.w.pressed = false
       break
-
     case 'a':
-        keys.a.pressed = false
-        break
-
+      keys.a.pressed = false
+      break
     case 's':
-          keys.s.pressed = false
-          break
-
+      keys.s.pressed = false
+      break
     case 'd':
       keys.d.pressed = false
       break
@@ -399,8 +393,8 @@ window.addEventListener('keyup', (e) => {
 
 let clicked = false
 addEventListener('click', () => {
-  if (!clicked){
-  audio.Map.play()
-  clicked = true
+  if (!clicked) {
+    audio.Map.play()
+    clicked = true
   }
 })
