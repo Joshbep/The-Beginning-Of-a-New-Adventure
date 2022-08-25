@@ -1,4 +1,4 @@
-# Project-1-The Beginning Of a New Adventure
+# The Beginning Of a New Adventure
 
 ![Start Game Preview](./img/title.png)
 ![Title Preview](/img/StartGame.png)
